@@ -6,7 +6,11 @@ import inquirer from "inquirer";
 // import chalkAnimation from "chalk-animation";
 // import figlet from "figlet";
 // import { createSpinner } from "nanospinner";
-import imageSize from "image-size";
+// "gradient-string": "^2.0.0",
+// "chalk": "^5.0.0",
+// "figlet": "^1.5.2",
+// "chalk-animation": "^1.6.0",
+// "nanospinner": "^1.0.0"
 import { createHash, createDecipheriv } from "crypto";
 import { readFileSync } from "fs";
 
@@ -75,12 +79,6 @@ async function handleNode(item) {
     console.clear();
 
     let image_path = "./images/" + item.filename;
-    let dimensions = imageSize(image_path);
-
-    let image_height = process.stdout.rows;
-    let image_width = Math.floor(
-      (dimensions.width / dimensions.height) * process.stdout.rows
-    );
 
     imageToAscii(
       image_path,
