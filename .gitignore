@@ -1,0 +1,4 @@
+*.epub
+text/*
+encrypt.js
+node_modules/*
