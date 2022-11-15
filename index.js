@@ -16,6 +16,11 @@ import { readFileSync } from "fs";
 
 import { exit } from "process";
 
+import { dirname } from "path";
+import { fileURLToPath } from "url";
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+
 import imageToAscii from "image-to-ascii";
 
 const myArgs = process.argv.slice(2);
@@ -24,7 +29,7 @@ let adventure_key;
 let adventureJSON;
 
 if (myArgs.length != 1) {
-  console.log("usage: adventure-cli adventure_name");
+  console.log("usage: npm adventure-cli adventure_name");
   exit(1);
 } else {
   adventure_key = myArgs[0];
@@ -52,7 +57,7 @@ if (myArgs.length != 1) {
     };
 
     adventureJSON = JSON.parse(
-      decrypt(readFileSync("database.json")).toString()
+      decrypt(readFileSync(`${__dirname}/database.json`)).toString()
     );
   }
 }
@@ -78,7 +83,7 @@ async function handleNode(item) {
   } else if (item.type === "image") {
     console.clear();
 
-    let image_path = "./images/" + item.filename;
+    let image_path = `${__dirname}/images/${item.filename}`;
 
     imageToAscii(
       image_path,

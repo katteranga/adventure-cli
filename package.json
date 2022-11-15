@@ -1,6 +1,6 @@
 {
   "name": "adventure-cli",
-  "version": "1.0.1",
+  "version": "1.0.8",
   "description": "",
   "main": "index.js",
   "type": "module",
@@ -11,6 +11,11 @@
   "scripts": {
     "start": "node ."
   },
+  "files": [
+    "index.js",
+    "database.json",
+    "images"
+  ],
   "bin": "./index.js",
   "dependencies": {
     "image-to-ascii": "^3.0.13",
